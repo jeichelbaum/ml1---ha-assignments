@@ -127,7 +127,9 @@ class Sampler:
 	def __init__(self,X,T):
 
 		assert(len(X)==len(T))
-        	self.X,self.T,self.nbsamples = X*1.0,T*1.0,len(X)
+		self.X = X*1.0
+		self.T = T*1.0
+		self.nbsamples = len(X)	
 		self.seed = numpy.random.mtrand.RandomState(1234)
 
 	# sample half of the total data
@@ -148,11 +150,13 @@ class Sampler:
 # a range of parameters on a dataset.
 # --------------------------------------------
 def plotBVE(dataset,params,predictortype,getBiasVariance,name):
-
+	return
 	X,T = dataset()
 
-	B,V,E = [],[],[]
-
+	B = []
+	V = []
+	E = []
+	
 	for param in params:
 
 		# Method to compute bias and variance
